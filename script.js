@@ -1,4 +1,9 @@
+const enviar = document.getElementById('login-enviar');
+const form = document.getElementById('evaluation-form');
+
 const agreement = document.getElementById('agreement');
+const enviarform = document.getElementById('submit-btn');
+const formdata = document.getElementById('form-data');
 
 function checarDados() {
   const email = document.getElementById('login-email').value;
@@ -11,22 +16,15 @@ function checarDados() {
   }
 }
 
-function toggleSubmit() {
-  const enviarform = document.getElementById('submit-btn');
+enviar.addEventListener('click', checarDados);
 
-  if(agreement.checked) {
+function toggleSubmit() {
+  if (agreement.checked) {
     enviarform.disabled = false;
   } else {
     enviarform.disabled = true;
   }
-
 }
-
-
-const enviar = document.getElementById('login-enviar');
-enviar.addEventListener('click', checarDados);
-
-agreement.addEventListener('click', toggleSubmit);
 
 
 /* Função que conta os caracteres dentro de uma textArea, decrementa do valor de caracteres máximo (maxLength)e exibe Elemento html
@@ -47,3 +45,49 @@ const commentTextArea = document.querySelector('#textarea');
 commentTextArea.addEventListener('input', function() {
   charCounter('#textarea', '#counter');
 });
+agreement.addEventListener('click', toggleSubmit);
+
+function showFormData() {
+  form.style.display = 'none';
+  formdata.style.display = 'block';
+}
+
+function addFormData(input, output) {
+  document.getElementById(output).innerHTML = form.elements[input].value;
+}
+
+function addNomeFormData() {
+  const inputNome = form.elements['input-name'].value;
+  const inputSobrenome = form.elements['input-lastname'].value;
+  const outNome = document.getElementById('out-nome');
+  outNome.innerHTML = `${inputNome} ${inputSobrenome}`;
+}
+
+function addMateriaFormData() {
+  const inputMaterias = document.getElementsByClassName('subject');
+  const outMaterias = document.getElementById('out-materia');
+
+  const materiasChecked = [];
+
+  for (let i = 0; i < inputMaterias.length; i += 1) {
+    if (inputMaterias[i].checked) {
+      materiasChecked.push(inputMaterias[i].value);
+    }
+  }
+
+  outMaterias.innerHTML = materiasChecked.join(', ');
+}
+
+function createForm() {
+  showFormData();
+
+  addNomeFormData();
+  addFormData('input-email', 'out-email');
+  addFormData('house', 'out-casa');
+  addFormData('family', 'out-familia');
+  addMateriaFormData();
+  addFormData('rate', 'out-aval');
+  addFormData('observacoes', 'out-obs');
+}
+
+enviarform.addEventListener('click', createForm);

@@ -18,8 +18,17 @@
         </form>
     </header>
     <main>
-        <form id="evaluation-form" action="">
+        <form id="form-data">
+            <p>Nome: <span id="out-nome"></span></p>
+            <p>Email: <span id="out-email"></span></p>
+            <p>Casa: <span id="out-casa"></span></p>
+            <p>Família: <span id="out-familia"></span></p>
+            <p>Matérias: <span id="out-materia"></span></p>
+            <p>Avaliação: <span id="out-aval"></span></p>
+            <p>Observações: <span id="out-obs"></span></p>
+        </form>
 
+        <form id="evaluation-form" action="" onsubmit="return false">
             <div>
                 <input id="input-name" type="text" placeholder="Nome">
                 <input id="input-lastname" type="text" placeholder="Sobrenome">
@@ -58,8 +67,12 @@
             </label>
 
             <label class="textarea">Deixe seu comentário:</label>
+<<<<<<< HEAD
             <textarea id="textarea" maxlength="500"></textarea>
             <p id="counter">500</p>
+=======
+            <textarea name="observacoes" id="textarea" maxlength="500"></textarea>
+>>>>>>> 79244d723d508f68a41dcb38c40f36a990d5af09
 
             <label for="" id="label-content"> Qual conteúdo você está com mais vontade de aprender? </label>
             <input type="checkbox" class="subject" value="HoFs">

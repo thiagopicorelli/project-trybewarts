@@ -11,3 +11,7 @@ main {
   display: flex;
   width: 675px;
 }
+
+.trybewarts-login {
+  display: flex;
+}

@@ -14,9 +14,8 @@ main {
 
 .trybewarts-login {
   display: flex;
-<<<<<<< HEAD
 }
-=======
-  
+
+#trybewarts-forms-logo {
+  height: 500px;
 }
->>>>>>> 19541f360903826441c37158975a4d5070023bcb

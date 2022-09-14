@@ -9,11 +9,20 @@ main {
 
 #evaluation-form {
   display: flex;
+  flex-direction: column;
   width: 675px;
+}
+
+#label-rate {
+  display: flex;
+  flex-direction: row;
 }
 
 .trybewarts-login {
   display: flex;
+  height: 20%;
+  align-self: center;
+  flex-direction: column;
 }
 
 #trybewarts-forms-logo {

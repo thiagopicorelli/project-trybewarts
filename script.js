@@ -27,7 +27,7 @@ function toggleSubmit() {
 }
 
 
-/* Função que conta os caracteres dentro de uma textArea, decrementa do valor de caracteres máximo (maxLength)e exibe Elemento html
+/* Função que conta os caracteres dentro de uma textArea, decrementa do valor de caracteres máximo (maxLength) e exibe no Elemento html
    queryTextArea = querySelector de um texto no html
    queryDisplayElement = querySelector de uma tag onde será exibido o número de caracteres
 */

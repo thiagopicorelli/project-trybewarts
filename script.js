@@ -19,12 +19,11 @@ function checarDados() {
 enviar.addEventListener('click', checarDados);
 
 function toggleSubmit() {
-  if(agreement.checked) {
+  if (agreement.checked) {
     enviarform.disabled = false;
   } else {
     enviarform.disabled = true;
   }
-
 }
 
 agreement.addEventListener('click', toggleSubmit);
@@ -34,14 +33,42 @@ function showFormData() {
   formdata.style.display = 'block';
 }
 
+function addFormData(input, output) {
+  document.getElementById(output).innerHTML = form.elements[input].value;
+}
+
+function addNomeFormData() {
+  const inputNome = form.elements['input-name'].value;
+  const inputSobrenome = form.elements['input-lastname'].value;
+  const outNome = document.getElementById('out-nome');
+  outNome.innerHTML = `${inputNome} ${inputSobrenome}`;
+}
+
+function addMateriaFormData() {
+  const inputMaterias = document.getElementsByClassName('subject');
+  const outMaterias = document.getElementById('out-materia');
+
+  const materiasChecked = [];
+
+  for (let i = 0; i < inputMaterias.length; i += 1) {
+    if (inputMaterias[i].checked) {
+      materiasChecked.push(inputMaterias[i].value);
+    }
+  }
+
+  outMaterias.innerHTML = materiasChecked.join(', ');
+}
+
 function createForm() {
   showFormData();
 
-  const inputnome = form.elements['input-name'].value;
-  const inputsobrenome = form.elements['input-lastname'].value;
-  const outnome = document.getElementById('out-nome');
-
-  outnome.innerHTML = `${inputnome} ${inputsobrenome}`;
+  addNomeFormData();
+  addFormData('input-email', 'out-email');
+  addFormData('house', 'out-casa');
+  addFormData('family', 'out-familia');
+  addMateriaFormData();
+  addFormData('rate', 'out-aval');
+  addFormData('observacoes', 'out-obs');
 }
 
 enviarform.addEventListener('click', createForm);

@@ -1,4 +1,9 @@
+const enviar = document.getElementById('login-enviar');
+const form = document.getElementById('evaluation-form');
+
 const agreement = document.getElementById('agreement');
+const enviarform = document.getElementById('submit-btn');
+const formdata = document.getElementById('form-data');
 
 function checarDados() {
   const email = document.getElementById('login-email').value;
@@ -11,9 +16,9 @@ function checarDados() {
   }
 }
 
-function toggleSubmit() {
-  const enviarform = document.getElementById('submit-btn');
+enviar.addEventListener('click', checarDados);
 
+function toggleSubmit() {
   if(agreement.checked) {
     enviarform.disabled = false;
   } else {
@@ -22,7 +27,21 @@ function toggleSubmit() {
 
 }
 
-const enviar = document.getElementById('login-enviar');
-enviar.addEventListener('click', checarDados);
-
 agreement.addEventListener('click', toggleSubmit);
+
+function showFormData() {
+  form.style.display = 'none';
+  formdata.style.display = 'block';
+}
+
+function createForm() {
+  showFormData();
+
+  const inputnome = form.elements['input-name'].value;
+  const inputsobrenome = form.elements['input-lastname'].value;
+  const outnome = document.getElementById('out-nome');
+
+  outnome.innerHTML = `${inputnome} ${inputsobrenome}`;
+}
+
+enviarform.addEventListener('click', createForm);

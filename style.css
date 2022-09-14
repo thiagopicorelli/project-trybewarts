@@ -12,6 +12,11 @@ main {
   width: 675px;
 }
 
+#label-rate {
+  display: flex;
+  flex-direction: row;
+}
+
 .trybewarts-login {
   display: flex;
 }

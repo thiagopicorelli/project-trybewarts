@@ -17,7 +17,7 @@ function toggleSubmit() {
   if(agreement.checked) {
     enviarform.disabled = false;
   } else {
-    enviarform.enabled = true;
+    enviarform.disabled = true;
   }
 
 }

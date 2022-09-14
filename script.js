@@ -22,7 +22,28 @@ function toggleSubmit() {
 
 }
 
+
 const enviar = document.getElementById('login-enviar');
 enviar.addEventListener('click', checarDados);
 
 agreement.addEventListener('click', toggleSubmit);
+
+
+/* Função que conta os caracteres dentro de uma textArea, decrementa do valor de caracteres máximo (maxLength)e exibe Elemento html
+   queryTextArea = querySelector de um texto no html
+   queryDisplayElement = querySelector de uma tag onde será exibido o número de caracteres
+*/
+function charCounter(queryTextArea, queryDisplayElement) {
+  let textArea = document.querySelector(queryTextArea);
+  let displayCounter = document.querySelector(queryDisplayElement);
+  let counter = textArea.value.length;
+
+  displayCounter.textContent = Math.abs(counter - textArea.maxLength);
+  console.log("feito +", displayCounter.innerhtml)
+}
+
+
+const commentTextArea = document.querySelector('#textarea');
+commentTextArea.addEventListener('input', function() {
+  charCounter('#textarea', '#counter');
+});

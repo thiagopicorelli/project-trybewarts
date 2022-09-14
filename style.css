@@ -9,6 +9,7 @@ main {
 
 #evaluation-form {
   display: flex;
+  flex-direction: column;
   width: 675px;
 }
 
@@ -19,6 +20,9 @@ main {
 
 .trybewarts-login {
   display: flex;
+  height: 20%;
+  align-self: center;
+  flex-direction: column;
 }
 
 #trybewarts-forms-logo {
